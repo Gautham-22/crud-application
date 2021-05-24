@@ -1,0 +1,48 @@
+
+<!--                including header            -->
+
+<%- include("include/_header") %>
+
+<!--  ----------------------------------------- -->
+        <main id="main-site">
+            <div class="nav-btn">
+                <a href="/add-user">New user <i class="fas fa-user"></i></a>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Gender</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(let i=0;i<users.length;i++){ %>
+                        <tr>
+                            <td><%= i+1 %></td>
+                            <td><%= users[i].name %></td>
+                            <td><%= users[i].email %></td>
+                            <td><%= users[i].gender %></td>
+                            <td><%= users[i].status %></td>
+                            <td class="ud-btns">
+                                <a href="/update-user?id=<%= users[i]._id %>">
+                                    <span><i class="fas fa-pencil-alt"></i></span>
+                                </a>
+                                <a class="delete-btn" data-id="<%= users[i]._id %>">
+                                    <span><i class="fas fa-times"></i></span>
+                                </a>
+                            </td>
+                        </tr>
+                    <% } %>
+                </tbody>
+            </table>
+        </main>
+
+<!--                including footer            -->
+
+<%- include("include/_footer") %>
+
+<!--  ----------------------------------------- -->

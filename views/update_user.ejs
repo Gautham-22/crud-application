@@ -1,0 +1,59 @@
+<!--                including header            -->
+
+<%- include("include/_header") %>
+
+<!--  ----------------------------------------- -->
+
+        <div id="main-site2">
+            <div class="nav-btn">
+                <a href="/"><i class="fa fa-angle-double-left"></i> All users</a>
+            </div>
+            <div class="content">
+                <div class="info">
+                    <h2>Update user</h2>
+                    <p class="light">Use the below form to update an existing account</p>
+                </div>
+                <form method="POST" id="updation-form">
+                    <div class="form-group">
+                        <label for="name" class="light">Name : </label>
+                        <input type="hidden" name="id" value="<%= user._id %>">
+                        <input type="text" id="name" value="<%= user.name %>" name="name" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="light">Email : </label>
+                        <input type="email" id="email" value="<%= user.email %>" name="email" autocomplete="off">
+                    </div>
+                    <div class="form-group">
+                        <label for="gender" class="light">Gender : </label> 
+                        <div class="choose">
+                            <input type="radio" id="male" value="Male" name="gender" <%= user.gender == "Male" ? "checked" : "" %>>
+                            <label for="male">Male</label>
+                        </div>
+                        <div class="choose">
+                            <input type="radio" id="female" value="Female" name="gender" <%= user.gender == "Female" ? "checked" : "" %>>
+                            <label for="female">Female</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="status" class="light">Status : </label> 
+                        <div class="choose">
+                            <input type="radio" id="active" value="Active" name="status" <%= user.status == "Active" ? "checked" : "" %>>
+                            <label for="active">Active</label>
+                        </div>
+                        <div class="choose">
+                            <input type="radio" id="inactive" value="Inactive" name="status" <%= user.status == "Inactive" ? "checked" : "" %>>
+                            <label for="inactive">Inactive</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+<!--                including footer            -->
+
+<%- include("include/_footer") %>
+
+<!--  ----------------------------------------- -->
